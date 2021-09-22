@@ -56,3 +56,31 @@ function solve(number) {
 }
 
 // 5
+function solve(band, album, song) {
+
+    let songDuration = album.length * band.length * song.length / 2;
+    let rotations = Math.ceil(songDuration / 2.5);
+
+    console.log(`The plate was rotated ${rotations} times.`);
+}
+
+// 6
+function solve(distance, passengers, priceL) {
+
+    let neededFuel = (distance / 100) * 7;
+    neededFuel += passengers * 0.1;
+    let totalMoneyNeeded = priceL * neededFuel;
+
+    console.log(`Needed money for that trip is ${totalMoneyNeeded} lv.`);
+}
+
+// 7
+function solve(centuries) {
+
+    let years = 100 * centuries;
+    let days = Math.trunc(365.2422 * years);
+    let hours = 24 * days;
+    let minutes = 60 * hours;
+
+    console.log(`${centuries} centuries = ${years} years = ${days} days = ${hours} hours = ${minutes} minutes`);
+}
