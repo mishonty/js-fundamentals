@@ -84,3 +84,43 @@ function solve(centuries) {
 
     console.log(`${centuries} centuries = ${years} years = ${days} days = ${hours} hours = ${minutes} minutes`);
 }
+
+// 8
+function solve(num) {
+
+    let sum = 0;
+    let signal = '';
+
+
+    for (let j = 1; j <= num; j++) {
+        j = j.toString();
+        for (let i = 0; i < j.length; i++) {
+            sum += Number(j[i]);
+        }
+        
+        signal = sum === 5 || sum === 7 || sum === 11;
+       
+
+        console.log(signal ? `${j} -> True` : `${j} -> False`);
+        sum = 0;
+    }
+}
+
+// 9
+function solve(num) {
+
+    let firstLetterCode = 'a'.charCodeAt();
+
+    for (let i = 0; i < num; i++) {
+        for (let j = 0; j < num; j++) {
+            for (let k = 0; k < num; k++) {
+                let result = String.fromCharCode(
+                    firstLetterCode + i,
+                    firstLetterCode + j,
+                    firstLetterCode + k);
+
+                    console.log(result);
+            }
+        }
+    }
+}
