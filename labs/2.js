@@ -106,6 +106,29 @@ function solve(num) {
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////
+function solve(num) {
+
+  for (let i = 1; i <= num; i++) {
+    let sum = 0;
+    let tempNum = i;
+    while (tempNum > 0) {
+      sum += tempNum % 10;
+      tempNum = Math.floor(tempNum / 10);
+    }
+
+    let isSpecial;
+    if (sum === 5 || sum === 7 || sum === 11) {
+      isSpecial = 'True';
+    } else {
+      isSpecial = 'False';
+    }
+
+    console.log(`${i} -> ${isSpecial}`);
+  }
+}
+//////////////////////////////////////////////////////////////////////////////
+
 // 9
 function solve(num) {
 
@@ -124,3 +147,20 @@ function solve(num) {
         }
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+function solve(num) {
+
+  for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+      for (let k = 0; k < num; k++) {
+        let char1 = String.fromCharCode(97 + i);
+        let char2 = String.fromCharCode(97 + j);
+        let char3 = String.fromCharCode(97 + k);
+
+        console.log(char1 + char2 + char3);
+      }
+    }
+  }
+}
+///////////////////////////////////////////////////////////////////////////////
