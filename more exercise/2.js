@@ -62,3 +62,29 @@ function solve(r, h) {
   console.log(`volume = ${volume.toFixed(4)}`);
   console.log(`area = ${area.toFixed(4)}`)
 }
+
+// 4
+function solve(a, b, c) {
+
+  let biggest = 0;
+
+  if (a > Number.MIN_SAFE_INTEGER) {
+    biggest = a;
+  }
+
+  if (b > a) {
+    if (c > b) {
+      biggest = c;
+    } else {
+      biggest = b;
+    }
+  } else {
+    if (c > a) {
+      biggest = c;
+    } else {
+      biggest = a;
+    }
+  }
+
+  console.log(biggest);
+}
