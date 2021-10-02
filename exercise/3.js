@@ -34,3 +34,21 @@ function solve(arr1, arr2) {
     }
   }
 }
+
+// 3
+function solve(arr1, arr2) {
+  let arr3 = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    let bufferSum = Number(arr1[i]) + Number(arr2[i]);
+    if (i % 2 === 0) {
+      arr3.push(bufferSum);
+    } else {
+      arr3.push(arr1[i] + arr2[i]);
+    }
+  }
+
+  console.log(arr3.join(' - '));
+}
+
+// 4
