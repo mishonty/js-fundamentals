@@ -66,6 +66,67 @@ function solve(arr, n) {
     console.log(arrNum.join(' '));
   }
 
+// 6
+function solve(arr) {
+
+  let result = 'no';
+
+  for (let i = 0; i < arr.length; i++) {
+    let leftSum = 0;
+    let rightSum = 0;
+    for (let j = 0; j < i; j++) {
+      leftSum += arr[j];
+    }
+    for (let k = arr.length - 1; k > i; k--) {
+      rightSum += arr[k];
+    }
+    if (leftSum === rightSum) {
+      result = i;
+      break;
+    }
+  }
+
+  console.log(result);
+}
+
+// 7
+function maxSequence(arr) {
+ 
+    let longestSequence = [];
+    let leftMostIndex = 0;
+ 
+ 
+    for (let i = 0; i < arr.length; i++) {
+        currentEl = Number(arr[i]);
+        let currentSequence = [currentEl];
+ 
+ 
+        for (let j = i + 1; j < arr.length; j++) {
+            let nextEl = Number(arr[j]);
+ 
+            if (nextEl === currentEl) {
+                currentSequence.push(nextEl)
+            } else {
+                break;
+            }
+ 
+        }
+ 
+        if (currentSequence.length > longestSequence.length) {
+            longestSequence = [];
+            for (let j = 0; j < currentSequence.length; j++) {
+                longestSequence.push(currentSequence[j]);
+            }
+        } else if (currentSequence.length === longestSequence.length) {
+            if (i < leftMostIndex) {
+                leftmostIndex = i;
+            }
+        }
+    }
+  
+    console.log(longestSequence.join(' '));
+}
+
 // 8
 function solve(arr, n) {
 
