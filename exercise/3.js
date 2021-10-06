@@ -52,3 +52,37 @@ function solve(arr1, arr2) {
 }
 
 // 4
+function solve(arr, n) {
+
+    let arrNum = arr;
+    let arrL = arr.length;
+
+    for (let i = 0; i < n; i++) {
+        let currentNum = arrNum.shift();
+        arrNum.push(currentNum);
+
+    }
+
+    console.log(arrNum.join(' '));
+  }
+
+// 8
+function solve(arr, n) {
+
+  let numbers = arr;
+  let numbersL = numbers.length;
+  let sum = 0;
+  let pair = '';
+
+  for (let i = 0; i < numbersL; i++) {
+    let firstNum = Number(numbers[i]);
+    for (let j = i + 1; j < numbersL; j++) {
+      let secondNum = Number(numbers[j]);
+      if (firstNum + secondNum === n) {
+      pair = `${firstNum} ${secondNum} `;
+      
+      console.log(pair);
+      }
+    }
+  }
+}
