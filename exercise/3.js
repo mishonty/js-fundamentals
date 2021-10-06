@@ -66,6 +66,28 @@ function solve(arr, n) {
     console.log(arrNum.join(' '));
   }
 
+// 5
+function maxNumber(arr) {
+ 
+    let print = "";
+    let arrLength = arr.length;
+    let isBigger = true;
+    for (let i = 0; i < arrLength; i++) {
+        let topInteger = arr[i];
+ 
+        for (let j = i + 1; j < arrLength; j++) {
+            if (topInteger <= arr[j]) {
+                isBigger = false;
+            }
+        }
+        if (isBigger) {
+            print += ` ${topInteger}`;
+        }
+        isBigger = true;
+    }
+    console.log(print);
+}
+
 // 6
 function solve(arr) {
 
