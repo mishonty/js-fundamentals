@@ -169,3 +169,51 @@ function solve(arr, n) {
     }
   }
 }
+
+// 9
+function solve(input) {
+
+    let allCoins = 0;
+    let health = 100;
+    let roomCounter = 0;
+    let arr = input[0].split('|');
+    let arrL = arr.length;
+
+    for (let i = 0; i < arrL; i++) {
+        let currentRoom = arr[i].split(' ');
+        let action = currentRoom[0];
+        let num = Number(currentRoom[1]);
+        roomCounter++;
+
+        if (action === 'potion') {
+
+            if (health + num > 100) {
+                num = 100 - health;
+                health = 100;
+            } else {
+                health += num;
+            }
+
+            console.log(`You healed for ${num} hp.`);
+            console.log(`Current health: ${health} hp.`);
+        } else if (action === 'chest') {
+            allCoins += num;
+            console.log(`You found ${num} coins.`);
+        } else {
+            health -= num;
+            if (health > 0) {
+                console.log(`You slayed ${action}.`);
+            } else {
+                console.log(`You died! Killed by ${action}.`);
+                console.log(`Best room: ${roomCounter}`);
+                return;
+            }
+        }
+    }
+
+    console.log(`You've made it!`);
+    console.log(`Coins: ${allCoins}`);
+    console.log(`Health: ${health}`);
+}
+
+// 10
