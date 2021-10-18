@@ -9,7 +9,7 @@ function solve(arr) {
   console.log(output);
 }
 
-// 2
+// 1. 1.
 function solve(arr) {
   let numbers = arr.map(Number);
   let numbersL = numbers.length;
@@ -26,7 +26,7 @@ function solve(arr) {
   console.log(newArr.join("\n"));
 }
 
-// 3
+// 2
 function solve(arr) {
   let numbers = arr.map(Number);
   let numbersL = numbers.length;
@@ -40,3 +40,39 @@ function solve(arr) {
 }
 
 // 4
+function solver(length, k) {
+    let outputArr = [1];
+  
+    for(let i = 1; i<length; i++){
+        outputArr[i] = sumLastK(outputArr, k);
+    }
+  
+    console.log(outputArr.join(' '));
+ 
+    function sumLastK(arr, k) {
+        k = arr.length>k ? k : arr.length;
+        let sum = 0;
+        for(let i = 1; i<=k; i++){
+            sum += arr[arr.length-i];
+        }
+        return sum;
+    }
+}
+
+// 5
+function solve(arr) {
+  let numbers = arr;
+  let numbersL = numbers.length;
+  let output = [];
+
+  for (let index = numbersL -1; index >= 1; index--) {
+    let currentNum = Number(numbers[index]);
+    if (index % 2 !== 0) {
+      output.push(currentNum * 2);
+    }
+  }
+
+  console.log(output.join(' '));
+}
+
+// 5
