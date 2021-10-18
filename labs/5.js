@@ -75,4 +75,10 @@ function solve(arr) {
   console.log(output.join(' '));
 }
 
-// 5
+// 6
+function solve(arr) {
+  arr.sort((a, b) => a - b);
+  let result = arr.slice(0, 2);
+  
+  return result.join(' ');
+}
