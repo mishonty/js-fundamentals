@@ -39,7 +39,7 @@ function solve(arr) {
   console.log(lastK);
 }
 
-// 4
+// 3
 function solver(length, k) {
     let outputArr = [1];
   
@@ -59,7 +59,7 @@ function solver(length, k) {
     }
 }
 
-// 5
+// 4
 function solve(arr) {
   let numbers = arr;
   let numbersL = numbers.length;
@@ -75,10 +75,90 @@ function solve(arr) {
   console.log(output.join(' '));
 }
 
-// 6
+// 5
 function solve(arr) {
   arr.sort((a, b) => a - b);
   let result = arr.slice(0, 2);
   
   return result.join(' ');
+}
+
+function solve(arr) {
+
+  let numbers = arr.map(Number);
+  let sorted = [];
+
+  for (let num = 0; num < numbers.length; num++) {
+    let currentNum = numbers[num];
+    sorted.push(currentNum);
+  }
+
+  let sortedInAscending = sorted.sort((a, b) => {
+    return a - b;
+  });
+
+  console.log(sorted.slice(0, 2).join(' '));
+}
+
+// 6
+function solve(arr) {
+
+  let sorted = arr.sort();
+  let sortedL = sorted.length;
+
+  for (let num = 0; num < sortedL; num++) {
+    console.log(`${num + 1}.${sorted[num]}`);
+  }
+}
+
+// 7
+function solve(arr) {
+
+  let sorted = arr.sort();
+  let sortedL = sorted.length;
+
+  for (let num = 0; num < sortedL; num++) {
+    console.log(`${num + 1}.${sorted[num]}`);
+  }
+}
+
+// 9
+function solve(arr) {
+
+  let numbers = arr
+    .shift()
+    .split(' ')
+    .map(Number);
+
+  for (let i = 0; i < arr.length; i++) {
+    let [command, firstNum, secondNum] = arr[i].split(' ');
+
+    firstNum = Number(firstNum);
+    secondNum = Number(secondNum);
+
+    switch (command) {
+      case 'Add':
+        function add(el) {
+          numbers.push(el);
+        }
+        break;
+      case 'Remove':
+        function remove(num) {
+          numbers = numbers.filter(el => el !== num);
+        }
+        break;
+      case 'RemoveAt':
+        function removeAt(index) {
+          numbers.splice(index, 1);
+        }
+        break;
+      case 'Insert':
+        function insert(num, index) {
+          numbers.splice(index, 0, num);
+        }
+        break;
+    }
+  }
+
+  console.log(numbers.join(' '));
 }
