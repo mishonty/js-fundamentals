@@ -1,74 +1,31 @@
+// 1
 function solve(arr) {
-
-  let wagoonsArr = arr
+  let wagoons = arr
     .shift()
-    .split(' ')
-    .map(Number);
-  let wagoonsCapacity = Number(arr.shift());
-  let wagoonsL = wagoonsArr.length;
-  let arrL = arr.length;
-  let output = [];
+    .split(" ")
+    .map(function (a) {
+      return Number(a);
+    });
+  let maxCap = +arr.shift();
 
-  for (let i = 0; i < arrL; i++) {
-  	let currentWagoon = wagoonsArr[i];
-    let currentElement = arr[i].split(' ');
-    let firstSign = currentElement[0];
-    let secondSign = currentElement[1];
+  for (let i = 0; i < arr.length; i++) {
+    let command = arr[i].split(" ");
 
-    if (firstSign === 'Add') {
-      output.push(Number(secondSign));
-    }
-    
-    if (wagoonsCapacity - currentWagoon > Number(firstSign)) {
-    currentWagoon += Number(firstSign);
-    output.push(currentWagoon);
-    }
-  }
+    if (command.length === 2) {
+      wagoons.push(+command[1]);
+    } else if (command.length === 1) {
+      let passengersToAdd = Number(command);
+      for (let j = 0; j < wagoons.length; j++) {
+        let currentWagoon = wagoons[j];
+        let emptySeats = maxCap - currentWagoon;
 
-
-  console.log(output);
-}
-
-
-
-
-
-function solve(arr) {
-
-  let wagoonsArr = arr
-    .shift()
-    .split(' ')
-    .map(Number);
-  let capacity = Number(arr.shift());
-  let wagoonsL = wagoonsArr.length;
-  let arrL = arr.length;
-  let output = [];
-
-  for (let i = 0; i < arrL; i++) {
-    let currentWagoon = wagoonsArr[i];
-    let currentElement = arr[i].split(' ');
-    let firstSign = currentElement[0];
-    let secondSign = currentElement[1];
-    let emptyseats = capacity - currentWagoon;
-
-    if (firstSign === 'Add') {
-      output.push(Number(secondSign));
-    }
-
-    if (emptyseats > Number(firstSign)) {
-      currentWagoon += Number(firstSign);
-      output.push(currentWagoon);
-    } else {
-      for (let j = 1; j < arrL; j++) {
-        currentWagoon = wagoonsArr[j];
-        if (emptyseats > Number(firstSign)) {
-        currentWagoon += Number(firstSign);
-        output.push(currentWagoon);
+        if (emptySeats >= passengersToAdd) {
+          wagoons[j] += passengersToAdd;
+          break;
         }
       }
     }
   }
 
-console.log(wagoonsArr)
-  console.log(output);
+  console.log(wagoons.join(" "));
 }
