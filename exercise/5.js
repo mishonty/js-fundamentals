@@ -157,3 +157,25 @@ function solve(arr1, arr2) {
 }
 
 // 7
+function solve(arr1, arr2) {
+  let numbers = arr1;
+  let elementsToTake = arr2[0];
+  let elementsToDelete = arr2[1];
+  let elementSearch = arr2[2];
+  let count = 0;
+
+  let newArr = numbers.slice(0).splice(0, elementsToTake);
+  newArr.splice(0, elementsToDelete);
+
+  for (let i = 0; i < newArr.length; i++) {
+    let currentNum = newArr[i];
+
+    if (currentNum === elementSearch) {
+      count++;
+    }
+  }
+
+  console.log(`Number ${elementSearch} occurs ${count} times.`);
+}
+
+// 8
