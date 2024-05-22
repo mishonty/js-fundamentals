@@ -122,7 +122,7 @@ function solve(arr) {
   }
 }
 
-// 9
+// 8
 function solve(arr) {
 
   let numbers = arr
